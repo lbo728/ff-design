@@ -8,6 +8,32 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --common-100: #FFFFFF;
+  --common-0: #121212;
+
+  --gray-50: #F0F0F0;
+  --gray-100: #E8E8E8;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -124,4 +150,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
