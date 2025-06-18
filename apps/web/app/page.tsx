@@ -18,14 +18,10 @@ export default function Page() {
     <div className="flex items-center justify-center min-h-svh">
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button
-          variant="tertiary"
-          loading={isLoading}
-          loadingText="처리 중..."
-          onClick={handleClick}
-        >
+        <Button variant="tertiary" loading={isLoading} loadingText="처리 중..." onClick={handleClick}>
           버튼
         </Button>
+        <div className="h-10 px-4 bg-primary-normal flex items-center justify-center">TailwindCSS 사용 예시</div>
       </div>
     </div>
   );
