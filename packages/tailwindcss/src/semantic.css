@@ -1,0 +1,15 @@
+@theme {
+  --color-black: var(--common-black);
+  --color-white: var(--static-white);
+
+  --color-gray-500: var(--gray-500);
+
+  --color-background: var(--background);
+  --color-foreground: var(--static-black);
+
+  --color-primary-normal: var(--primary-normal);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-heavy: var(--primary-heavy);
+
+  --color-primary-outline: var(--shiraz-400);
+}
