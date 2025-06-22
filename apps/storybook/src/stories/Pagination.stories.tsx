@@ -1,47 +1,59 @@
-import type { Meta } from "@storybook/react-vite";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationLink,
-  PaginationItem,
-  PaginationPrevious,
-  PaginationNext,
-} from "@ff-design/react/components/pagination";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
+
+import { Pagination } from "@ff-design/react/components/pagination";
 
 const meta = {
-  title: "Components/Pagination",
+  title: "Pagination",
   component: Pagination,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    totalCount: {
+      control: { type: "number", min: 1, max: 20 },
+      description: "총 페이지 수",
+    },
+    currentPage: {
+      control: { type: "number", min: 1 },
+      description: "현재 활성화된 페이지",
+    },
+    onPageChange: {
+      action: "pageChanged",
+      description: "페이지 변경 시 호출되는 함수",
+    },
+  },
+  args: {
+    totalCount: 5,
+    currentPage: 1,
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Pagination>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-// 기본 페이지네이션
-export const Default = () => {
+export const Default: Story = {
+  args: {
+    totalCount: 5,
+    currentPage: 1,
+  },
+};
+
+export const Interactive = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalCount = 8;
+
   return (
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isActive>
-            1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+    <div className="flex flex-col items-center gap-4">
+      <Pagination
+        totalCount={totalCount}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+      <p className="text-sm text-gray-600">
+        현재 페이지: {currentPage} / {totalCount}
+      </p>
+    </div>
   );
 };
