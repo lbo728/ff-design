@@ -29,12 +29,11 @@ const Spinner = ({ className, ...props }: React.ComponentProps<"svg">) => (
 );
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive select-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive select-none cursor-pointer",
   {
     variants: {
       variant: {
-        default:
-          "bg-primary-normal text-primary-foreground hover:bg-primary-strong",
+        default: "bg-primary-normal text-white hover:bg-primary-strong",
         outline:
           "border border-black border-input hover:border-primary-heavy hover:bg-primary-outline hover:text-primary-heavy text-black",
         tertiary: "bg-black text-white hover:bg-gray-500",
@@ -59,6 +58,7 @@ interface ButtonProps
   asChild?: boolean;
   loading?: boolean;
   loadingText?: string;
+  label?: string;
 }
 
 function Button({
@@ -68,6 +68,7 @@ function Button({
   asChild = false,
   loading = false,
   loadingText,
+  label,
   children,
   disabled,
   ...props
@@ -81,6 +82,7 @@ function Button({
       disabled={disabled || loading}
       {...props}
     >
+      {label && <span className="text-sm font-medium">{label}</span>}
       {loading && <Spinner className="size-4" />}
       {loading && loadingText ? loadingText : children}
     </Comp>
