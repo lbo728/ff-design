@@ -4,8 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "@ff-design/react/*": ["./src/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler"
   },
-  "include": ["."],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
