@@ -1,5 +1,5 @@
 @theme {
-  --color-black: var(--common-black);
+  --color-black: var(--common-0);
   --color-white: var(--static-white);
 
   --color-gray-500: var(--gray-500);
