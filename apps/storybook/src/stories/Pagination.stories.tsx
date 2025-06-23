@@ -46,11 +46,7 @@ export const Interactive = () => {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <Pagination
-        totalCount={totalCount}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-      />
+      <Pagination totalCount={totalCount} currentPage={currentPage} onPageChange={setCurrentPage} />
       <p className="text-sm text-gray-600">
         현재 페이지: {currentPage} / {totalCount}
       </p>
