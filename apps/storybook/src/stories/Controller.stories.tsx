@@ -36,13 +36,24 @@ export const Default: StoryObj = {
   },
 };
 
-export const AllDirections = () => {
+export const FillAllDirections = () => {
   return (
     <div className="flex gap-4 items-center flex-wrap">
       <Controller direction="left" />
       <Controller direction="right" />
       <Controller direction="top" />
       <Controller direction="bottom" />
+    </div>
+  );
+};
+
+export const OutlineAllDirections = () => {
+  return (
+    <div className="flex gap-4 items-center flex-wrap">
+      <Controller direction="left" variant="outline" />
+      <Controller direction="right" variant="outline" />
+      <Controller direction="top" variant="outline" />
+      <Controller direction="bottom" variant="outline" />
     </div>
   );
 };
