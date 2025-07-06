@@ -29,4 +29,42 @@ function Checkbox({
   );
 }
 
-export { Checkbox };
+export interface CheckboxItemProps {
+  label: string;
+  checked?: boolean;
+  onChange?: (checked: boolean) => void;
+  className?: string;
+}
+
+const CheckboxItem = React.forwardRef<HTMLDivElement, CheckboxItemProps>(
+  ({ label, checked = false, onChange, className, ...props }, ref) => {
+    const handleClick = () => {
+      onChange?.(!checked);
+    };
+
+    return (
+      <div
+        ref={ref}
+        className={cn("flex items-center gap-2 cursor-pointer", className)}
+        onClick={handleClick}
+        {...props}
+      >
+        <div
+          className={cn(
+            "w-5 h-5 rounded border flex items-center justify-center transition-colors",
+            checked
+              ? "bg-black border-black"
+              : "border-gray-400 hover:border-gray-600"
+          )}
+        >
+          {checked && <CheckIcon className="w-3 h-3 text-white" />}
+        </div>
+        <span className="text-sm text-black select-none">{label}</span>
+      </div>
+    );
+  }
+);
+
+CheckboxItem.displayName = "CheckboxItem";
+
+export { Checkbox, CheckboxItem };
