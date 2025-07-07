@@ -1,6 +1,6 @@
 export * from "./badge";
 export * from "./button";
-export * from "./card";
+export * from "./modal";
 export * from "./checkbox";
 export * from "./controller";
 export * from "./filter";

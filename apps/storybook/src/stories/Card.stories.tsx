@@ -1,12 +1,12 @@
 import type { Meta } from "@storybook/react-vite";
 
 import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@ff-design/react/components/card";
+  Modal,
+  ModalHeader,
+  ModalTitle,
+  ModalContent,
+  ModalFooter,
+} from "@ff-design/react/components/modal";
 
 import { Button } from "@ff-design/react/components/button";
 import { Input } from "@ff-design/react/components/input";
@@ -16,21 +16,21 @@ import { FilterSection, FilterTag } from "@ff-design/react/components/filter";
 import { Label } from "@ff-design/react/components/label";
 
 const meta = {
-  title: "Card",
-  component: Card,
+  title: "Modal",
+  component: Modal,
   tags: ["autodocs"],
-} satisfies Meta<typeof Card>;
+} satisfies Meta<typeof Modal>;
 
 export default meta;
 
-export const CardLogin = () => {
+export const ModalLogin = () => {
   return (
-    <Card className="pb-[24px]">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Login</CardTitle>
+    <Modal>
+      <ModalHeader className="flex flex-row items-center justify-between">
+        <ModalTitle>Login</ModalTitle>
         <X className="w-4 h-4 cursor-pointer" />
-      </CardHeader>
-      <CardContent>
+      </ModalHeader>
+      <ModalContent>
         <div className="flex flex-col gap-[24px]">
           <Input
             id="email"
@@ -63,8 +63,8 @@ export const CardLogin = () => {
             </a>
           </div>
         </div>
-      </CardContent>
-      <CardFooter className="flex-col gap-[24px]">
+      </ModalContent>
+      <ModalFooter className="flex-col gap-[24px]">
         <Button type="submit" className="w-full h-[48px]">
           로그인
         </Button>
@@ -76,22 +76,22 @@ export const CardLogin = () => {
         <Button variant="outline" className="w-full h-[48px]">
           회원가입
         </Button>
-      </CardFooter>
-    </Card>
+      </ModalFooter>
+    </Modal>
   );
 };
 
-export const CardSignout = () => {
+export const ModalSignout = () => {
   return (
-    <Card className="pb-[24px]">
-      <CardHeader className="flex flex-row items-center justify-between">
+    <Modal className="pb-[24px]">
+      <ModalHeader className="flex flex-row items-center justify-between">
         <div className="flex flex-row gap-[8px] items-center">
           <ArrowLeft className="w-5 h-5" />
-          <CardTitle>회원가입</CardTitle>
+          <ModalTitle>회원가입</ModalTitle>
         </div>
         <X className="w-5 h-5 cursor-pointer" />
-      </CardHeader>
-      <CardContent>
+      </ModalHeader>
+      <ModalContent>
         <div className="flex flex-col gap-[24px]">
           <Input
             id="email"
@@ -124,24 +124,24 @@ export const CardSignout = () => {
             </a>
           </div>
         </div>
-      </CardContent>
-      <CardFooter className="flex-col gap-[24px]">
+      </ModalContent>
+      <ModalFooter className="flex-col gap-[24px]">
         <Button type="submit" className="w-full h-[48px]">
           동의하고 회원가입
         </Button>
-      </CardFooter>
-    </Card>
+      </ModalFooter>
+    </Modal>
   );
 };
 
-export const CardIllust = () => {
+export const ModalIllust = () => {
   return (
-    <Card className="pb-[24px]">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>완료</CardTitle>
+    <Modal className="pb-[24px]">
+      <ModalHeader className="flex flex-row items-center justify-between">
+        <ModalTitle>완료</ModalTitle>
         <X className="w-5 h-5 cursor-pointer" />
-      </CardHeader>
-      <CardContent className="flex flex-col items-center justify-center">
+      </ModalHeader>
+      <ModalContent className="flex flex-col items-center justify-center">
         <img
           src="/img/img-illust-complete.svg"
           className="w-[200px] h-[200px]"
@@ -155,25 +155,25 @@ export const CardIllust = () => {
             회원가입이 완료되었습니다.
           </span>
         </div>
-      </CardContent>
-      <CardFooter className="flex-col gap-[24px]">
+      </ModalContent>
+      <ModalFooter className="flex-col gap-[24px]">
         <Button type="submit" className="w-full h-[48px]">
           확인
         </Button>
-      </CardFooter>
-    </Card>
+      </ModalFooter>
+    </Modal>
   );
 };
 
-export const CardFilter = () => {
+export const ModalFilter = () => {
   return (
-    <Card className="w-[568px] max-h-[900px] overflow-hidden">
-      <CardHeader className="flex flex-row items-center justify-between border-b border-gray-200 px-6 py-4">
-        <CardTitle>필터</CardTitle>
+    <Modal className="w-[568px] max-h-[900px] overflow-hidden">
+      <ModalHeader className="flex flex-row items-center justify-between border-b border-gray-200 px-6 py-4">
+        <ModalTitle>필터</ModalTitle>
         <X className="w-6 h-6 cursor-pointer" />
-      </CardHeader>
+      </ModalHeader>
 
-      <CardContent className="p-6 overflow-y-auto max-h-[800px]">
+      <ModalContent className="p-6 overflow-y-auto max-h-[800px]">
         <div className="flex flex-col gap-8">
           <FilterSection title="취향">
             <div className="flex flex-wrap gap-2">
@@ -213,27 +213,27 @@ export const CardFilter = () => {
             </div>
           </FilterSection>
         </div>
-      </CardContent>
+      </ModalContent>
 
-      <CardFooter className="flex items-center justify-between border-t border-gray-200 px-6 py-4">
+      <ModalFooter className="flex items-center justify-between border-t border-gray-200 px-6 py-4">
         <button className="text-black text-base font-normal">Clear All</button>
         <Button className="px-6 py-3 h-12 bg-black text-white rounded-lg">
           Apply filters
         </Button>
-      </CardFooter>
-    </Card>
+      </ModalFooter>
+    </Modal>
   );
 };
 
-export const CardTerms = () => {
+export const ModalTerms = () => {
   return (
-    <Card className="w-[568px] max-h-[900px] overflow-hidden">
-      <CardHeader className="flex flex-row items-center justify-between border-b border-gray-200 px-6 py-4">
-        <CardTitle>이용약관</CardTitle>
+    <Modal className="w-[568px] max-h-[900px] overflow-hidden">
+      <ModalHeader className="flex flex-row items-center justify-between border-b border-gray-200 px-6 py-4">
+        <ModalTitle>이용약관</ModalTitle>
         <X className="w-6 h-6 cursor-pointer" />
-      </CardHeader>
+      </ModalHeader>
 
-      <CardContent className="p-6 overflow-y-auto max-h-[800px]">
+      <ModalContent className="p-6 overflow-y-auto max-h-[800px]">
         <div className="text-sm text-black leading-relaxed font-light">
           <p className="mb-4 font-normal">[개인정보 수집 및 이용 동의서]</p>
 
@@ -317,13 +317,13 @@ export const CardTerms = () => {
             <br />• 아일랜드 세법(1997)
           </p>
         </div>
-      </CardContent>
+      </ModalContent>
 
-      <CardFooter className="flex justify-end border-t border-gray-200 px-6 py-4">
+      <ModalFooter className="flex justify-end border-t border-gray-200 px-6 py-4">
         <Button className="px-6 py-4 h-12 bg-black text-white rounded-lg">
           Confirm
         </Button>
-      </CardFooter>
-    </Card>
+      </ModalFooter>
+    </Modal>
   );
 };
