@@ -37,6 +37,8 @@ const buttonVariants = cva(
         outline:
           "border border-black border-input hover:border-primary-heavy hover:bg-primary-outline hover:text-primary-heavy text-black",
         tertiary: "bg-black text-white hover:bg-gray-500",
+        ghost:
+          "bg-transparent text-black border border-black border-input hover:bg-black hover:text-white",
       },
       size: {
         default: "h-[56px] w-[152px] radius-[8px] px-4 py-2 has-[>svg]:px-3",
