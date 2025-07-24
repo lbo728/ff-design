@@ -11,3 +11,4 @@ export * from "./label";
 export * from "./pagination";
 export * from "./radio";
 export * from "./select";
+export * from "./toggleSwitch";
