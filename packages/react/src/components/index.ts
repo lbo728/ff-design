@@ -2,6 +2,7 @@ export * from "./badge";
 export * from "./button";
 export * from "./card";
 export * from "./count";
+export * from "./header";
 export * from "./modal";
 export * from "./checkbox";
 export * from "./controller";
