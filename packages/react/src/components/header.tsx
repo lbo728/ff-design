@@ -56,7 +56,7 @@ ListItem.displayName = "ListItem";
 export function Header({ className, logo, navigationItems }: HeaderProps) {
   const defaultNavigationItems: NavigationItem[] = [
     {
-      label: "New Arrivals",
+      label: "New Arrival",
       items: [
         {
           title: "Introduction",
@@ -99,6 +99,28 @@ export function Header({ className, logo, navigationItems }: HeaderProps) {
         },
       ],
     },
+    {
+      label: "Kids",
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs",
+          description:
+            "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
+    {
+      label: "Sport",
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs",
+          description:
+            "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
   ];
 
   const items = navigationItems || defaultNavigationItems;
@@ -106,24 +128,20 @@ export function Header({ className, logo, navigationItems }: HeaderProps) {
   return (
     <div
       className={cn(
-        "header-container flex flex-row items-center justify-between w-full  h-16 md:h-18 lg:h-[72px] px-4 md:px-6 lg:px-[48px] bg-white",
+        "header-container flex flex-row items-center justify-center w-full h-[72px] px-[48px] py-[12px] bg-white border-b border-gray-200",
         className
       )}
     >
-      <div className="header-inner flex flex-row items-center justify-between w-full max-w-full lg:max-w-[800px] h-full gap-2 md:gap-4 lg:gap-[">
-        <div className="header-left flex flex-row items-center w-full h-full gap-2 md:gap-4 lg:gap-[48px]">
+      <div className="header-inner flex flex-row items-center justify-between w-full max-w-[1824px] h-full px-0">
+        <div className="header-left flex flex-row items-center h-full gap-[120px]">
           {logo && (
-            <img
-              src={logo}
-              alt="logo-flux"
-              className="w-12 h-8 md:w-16 md:h-10 lg:w-[74px] lg:h-[28px]"
-            />
+            <img src={logo} alt="logo-flux" className="w-[74px] h-[28px]" />
           )}
           <NavigationMenu viewport={false} className="hidden md:block">
-            <NavigationMenuList className="flex flex-col md:flex-row gap-1 md:gap-2 lg:gap-4">
+            <NavigationMenuList className="flex flex-row items-center gap-4">
               {items.map((item, index) => (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuTrigger className="text-sm md:text-base lg:text-base">
+                  <NavigationMenuTrigger className="text-base font-medium text-gray-900 hover:text-gray-700 transition-colors">
                     {item.label}
                   </NavigationMenuTrigger>
                   {item.items && item.items.length > 0 && (
@@ -146,20 +164,33 @@ export function Header({ className, logo, navigationItems }: HeaderProps) {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <SearchBar className="w-48 md:w-56 lg:w-60" />
-        <div className="flex flex-row items-center gap-1 md:gap-2 lg:gap-0">
-          <div className="md:hidden">
-            <div className="header-icon-container w-10 h-10 flex justify-center items-center">
-              <MenuIcon className="w-5 h-5 cursor-pointer stroke-[1.5px]" />
+
+        <div className="header-right flex flex-row items-center gap-2">
+          <SearchBar className="w-[240px] bg-gray-100 rounded-full py-2" />
+          <div className="hidden md:flex flex-row items-center gap-2">
+            <div className="header-icon-container w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-gray-50 rounded-full transition-colors">
+              <HeartIcon className="w-5 h-5 stroke-[1.5px] stroke-black" />
+            </div>
+            <div className="header-icon-container w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-gray-50 rounded-full transition-colors">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                />
+              </svg>
             </div>
           </div>
 
-          <div className="hidden md:flex flex-row items-center gap-2 lg:gap-0">
-            <div className="header-icon-container w-12 h-12 lg:w-[48px] lg:h-[48px] flex justify-center items-center">
-              <HeartIcon className="w-5 h-5 lg:w-6 lg:h-6 cursor-pointer stroke-[1.5px]" />
-            </div>
-            <div className="header-icon-container w-12 h-12 lg:w-[48px] lg:h-[48px] flex justify-center items-center">
-              <UserIcon className="w-5 h-5 lg:w-6 lg:h-6 cursor-pointer stroke-[1.5px]" />
+          <div className="md:hidden">
+            <div className="header-icon-container w-10 h-10 flex justify-center items-center">
+              <MenuIcon className="w-5 h-5 cursor-pointer stroke-[1.5px]" />
             </div>
           </div>
         </div>
